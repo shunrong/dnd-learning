@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse/Touch Events 拖拽演示</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回主页</a>
+        
+        <div class="header">
+            <h1>👆 Mouse/Touch Events 拖拽</h1>
+            <p>基于鼠标和触摸事件的手动拖拽实现 - 完全可控，支持移动端</p>
+        </div>
+
+        <div class="demo-area">
+            <div class="drag-items">
+                <h3>📦 可拖拽元素</h3>
+                <div class="draggable-item" data-item="bug修复">
+                    🐛 Bug修复 - 解决登录问题
+                </div>
+                <div class="draggable-item" data-item="功能开发">
+                    ⚡ 功能开发 - 用户权限管理
+                </div>
+                <div class="draggable-item" data-item="代码重构">
+                    🔧 代码重构 - 优化数据库查询
+                </div>
+                <div class="draggable-item" data-item="文档更新">
+                    📚 文档更新 - API接口说明
+                </div>
+                <div class="draggable-item" data-item="性能优化">
+                    🚀 性能优化 - 前端资源压缩
+                </div>
+            </div>
+
+            <div class="drop-zones">
+                <div class="drop-zone" data-status="backlog">
+                    <h4>📋 待处理 (BACKLOG)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+                
+                <div class="drop-zone" data-status="progress">
+                    <h4>🔄 进行中 (IN PROGRESS)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+                
+                <div class="drop-zone" data-status="review">
+                    <h4>👀 待审核 (REVIEW)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+                
+                <div class="drop-zone" data-status="completed">
+                    <h4>✅ 已完成 (COMPLETED)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>📊 实时统计</h3>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value" id="dragCount">0</div>
+                    <div class="stat-label">拖拽次数</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="dropCount">0</div>
+                    <div class="stat-label">成功放置</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="moveCount">0</div>
+                    <div class="stat-label">移动事件</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="touchSupport">❓</div>
+                    <div class="stat-label">触摸支持</div>
+                </div>
+            </div>
+            
+            <h3>📋 事件日志</h3>
+            <div class="event-log" id="eventLog">
+                <div class="event">等待拖拽操作...</div>
+            </div>
+            <button class="clear-btn" onclick="clearLog()">清空日志</button>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h4>🎯 手动实现优势</h4>
+                <p>完全控制拖拽过程，可以实现复杂的动画效果和交互逻辑，移动端支持好</p>
+            </div>
+            <div class="feature">
+                <h4>📱 双端兼容</h4>
+                <p>同时监听鼠标和触摸事件，桌面端和移动端都有良好的用户体验</p>
+            </div>
+            <div class="feature">
+                <h4>⚡ 性能考虑</h4>
+                <p>使用节流优化移动事件，requestAnimationFrame优化动画性能</p>
+            </div>
+            <div class="feature">
+                <h4>🔧 自定义能力</h4>
+                <p>可以添加边界检测、磁吸效果、多选拖拽等高级功能</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./index.js"></script>
+</body>
+</html>

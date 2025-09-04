@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointer Events 拖拽演示</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回主页</a>
+        
+        <div class="header">
+            <h1>🎯 Pointer Events 拖拽</h1>
+            <p>现代统一API - 同时处理鼠标、触摸、笔等所有输入设备</p>
+        </div>
+
+        <div class="demo-area">
+            <div class="drag-items">
+                <h3>📦 可拖拽元素</h3>
+                <div class="draggable-item" data-item="前端开发">
+                    🌐 前端开发 - React组件重构
+                </div>
+                <div class="draggable-item" data-item="后端开发">
+                    ⚙️ 后端开发 - API接口优化
+                </div>
+                <div class="draggable-item" data-item="测试任务">
+                    🧪 测试任务 - 自动化测试脚本
+                </div>
+                <div class="draggable-item" data-item="设计工作">
+                    🎨 设计工作 - UI界面设计
+                </div>
+                <div class="draggable-item" data-item="运维部署">
+                    🚀 运维部署 - Docker容器化
+                </div>
+                <div class="draggable-item" data-item="产品规划">
+                    📊 产品规划 - 需求分析文档
+                </div>
+            </div>
+
+            <div class="drop-zones">
+                <div class="drop-zone" data-status="planning">
+                    <h4>📋 规划阶段 (PLANNING)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+                
+                <div class="drop-zone" data-status="development">
+                    <h4>🔧 开发阶段 (DEVELOPMENT)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+                
+                <div class="drop-zone" data-status="testing">
+                    <h4>🧪 测试阶段 (TESTING)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+                
+                <div class="drop-zone" data-status="production">
+                    <h4>🚀 生产阶段 (PRODUCTION)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>🎯 Pointer Events 信息</h3>
+            
+            <div class="active-pointers">
+                <h4>🖱️ 活跃指针</h4>
+                <div id="activePointers">暂无活跃指针</div>
+            </div>
+
+            <div class="pointer-info">
+                <div class="pointer-stat">
+                    <div class="pointer-stat-value" id="pointerSupport">检测中...</div>
+                    <div class="pointer-stat-label">Pointer Events支持</div>
+                </div>
+                <div class="pointer-stat">
+                    <div class="pointer-stat-value" id="pointerCount">0</div>
+                    <div class="pointer-stat-label">指针操作次数</div>
+                </div>
+                <div class="pointer-stat">
+                    <div class="pointer-stat-value" id="maxPointers">0</div>
+                    <div class="pointer-stat-label">最大同时指针数</div>
+                </div>
+                <div class="pointer-stat">
+                    <div class="pointer-stat-value" id="dragSuccessCount">0</div>
+                    <div class="pointer-stat-label">成功拖拽次数</div>
+                </div>
+            </div>
+            
+            <h3>📋 事件日志</h3>
+            <div class="event-log" id="eventLog">
+                <div class="event">等待指针操作...</div>
+            </div>
+            <button class="clear-btn" onclick="clearLog()">清空日志</button>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h4>🎯 统一接口</h4>
+                <p>一套API处理鼠标、触摸、笔等所有输入设备，简化开发复杂度</p>
+            </div>
+            <div class="feature">
+                <h4>🔒 指针捕获</h4>
+                <p>setPointerCapture确保拖拽过程中事件不丢失，即使指针移出元素边界</p>
+            </div>
+            <div class="feature">
+                <h4>⚡ 浏览器优化</h4>
+                <p>浏览器原生优化的事件处理，更好的性能和电池续航</p>
+            </div>
+            <div class="feature">
+                <h4>🔍 丰富信息</h4>
+                <p>提供pressure、tiltX、tiltY等详细信息，支持压感笔等高级输入设备</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./index.js"></script>   
+</body>
+</html>

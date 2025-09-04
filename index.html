@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽技术演示 - DnD Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .demos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .demo-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .demo-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .demo-desc {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .demo-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .demo-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .features {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+        }
+
+        .features h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .feature-list li {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 拖拽技术演示</h1>
+        <p class="subtitle">
+            探索前端拖拽的三种核心实现方案<br>
+            从HTML5原生API到手动实现，深入理解拖拽技术的底层原理
+        </p>
+
+        <div class="demos">
+            <div class="demo-card">
+                <div class="demo-icon">🌐</div>
+                <h3 class="demo-title">HTML5 Drag & Drop API</h3>
+                <p class="demo-desc">
+                    浏览器原生拖拽API，支持数据传输和跨应用拖拽，
+                    最标准的实现方式
+                </p>
+                <a href="./html5-dnd/index.html" class="demo-link">查看演示</a>
+            </div>
+
+            <div class="demo-card">
+                <div class="demo-icon">👆</div>
+                <h3 class="demo-title">Mouse/Touch Events</h3>
+                <p class="demo-desc">
+                    基于鼠标和触摸事件手动实现，完全可控，
+                    支持移动端的灵活方案
+                </p>
+                <a href="./mouse-touch/index.html" class="demo-link">查看演示</a>
+            </div>
+
+            <div class="demo-card">
+                <div class="demo-icon">🎯</div>
+                <h3 class="demo-title">Pointer Events</h3>
+                <p class="demo-desc">
+                    现代统一API，同时处理鼠标、触摸、笔等输入，
+                    未来趋势的最佳方案
+                </p>
+                <a href="./pointer-events/index.html" class="demo-link">查看演示</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h3>本演示项目特色</h3>
+            <ul class="feature-list">
+                <li>纯原生HTML/CSS/JS实现</li>
+                <li>框架无关的技术方案</li>
+                <li>移动端和桌面端兼容</li>
+                <li>详细的代码注释和说明</li>
+                <li>实时的拖拽状态反馈</li>
+                <li>优雅的视觉效果和动画</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

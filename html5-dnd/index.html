@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Drag & Drop API 演示</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回主页</a>
+        
+        <div class="header">
+            <h1>🌐 HTML5 Drag & Drop API (完整版)</h1>
+            <p>真正的移动操作 + 拖拽排序 - 支持双向拖拽和列表排序的完整解决方案</p>
+        </div>
+
+        <div class="demo-area">
+            <div class="drag-items">
+                <h3>📦 可拖拽元素</h3>
+                <div class="draggable-item" draggable="true" data-item="任务A">
+                    📋 任务A - 完成项目文档
+                </div>
+                <div class="draggable-item" draggable="true" data-item="任务B">
+                    🎨 任务B - 设计用户界面
+                </div>
+                <div class="draggable-item" draggable="true" data-item="任务C">
+                    💻 任务C - 编写核心代码
+                </div>
+                <div class="draggable-item" draggable="true" data-item="任务D">
+                    🧪 任务D - 测试功能模块
+                </div>
+            </div>
+
+            <div class="drop-zones">
+                <div class="drop-zone" data-status="todo">
+                    <h4>📝 待办 (TODO)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+                
+                <div class="drop-zone" data-status="doing">
+                    <h4>🔄 进行中 (DOING)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+                
+                <div class="drop-zone" data-status="done">
+                    <h4>✅ 已完成 (DONE)</h4>
+                    <p>拖拽任务到这里</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>📊 事件日志</h3>
+            <div class="event-log" id="eventLog">
+                <div class="event">等待拖拽操作...</div>
+            </div>
+            <button class="clear-btn" onclick="clearLog()">清空日志</button>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h4>✅ 真正的移动</h4>
+                <p>实现effectAllowed='move'的真正语义：放置后自动删除原始元素，符合移动操作的预期行为</p>
+            </div>
+            <div class="feature">
+                <h4>🔄 双向拖拽</h4>
+                <p>支持从右侧状态区域拖回左侧原始区域，元素可以在任意区域间自由移动</p>
+            </div>
+            <div class="feature">
+                <h4>📋 拖拽排序</h4>
+                <p>左侧列表支持拖拽排序，智能识别同容器排序和跨容器移动，提供精确的插入位置指示</p>
+            </div>
+            <div class="feature">
+                <h4>🎯 智能模式切换</h4>
+                <p>自动区分排序模式和移动模式，同一个拖拽操作支持多种交互意图</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
